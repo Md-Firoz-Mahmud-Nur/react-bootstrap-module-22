@@ -4,6 +4,7 @@ import type { RootState } from "./redux/store";
 import { useAppDispatch, useAppSelector } from "./redux/hook";
 import { Button } from "./components/ui/button";
 import Navbar from "./components/layout/Navbar";
+import { Outlet } from "react-router";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
+      <Outlet></Outlet>
       <h1>Counter With Redux</h1>
       <button onClick={() => handleIncrement(5)}>Increment By 5</button>
       <button onClick={() => handleIncrement(1)}>Increment</button>
