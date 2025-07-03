@@ -2,6 +2,7 @@ import "./App.css";
 import { decrement, increment } from "./redux/features/counter/counterSlice";
 import type { RootState } from "./redux/store";
 import { useAppDispatch, useAppSelector } from "./redux/hook";
+import { Button } from "./components/ui/button";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -22,6 +23,10 @@ function App() {
       <div>{count}</div>
       <button onClick={() => handleDecrement(5)}>Decrement By 5</button>
       <button onClick={() => handleDecrement(1)}>Decrement</button>
+
+      <div className="flex min-h-svh flex-col items-center justify-center">
+        <Button>Click me</Button>
+      </div>
     </>
   );
 }
