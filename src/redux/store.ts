@@ -3,7 +3,10 @@ import counterReducer from "./features/counter/counterSlice";
 import taskReducer from "./features/task/taskSlice";
 
 export const store = configureStore({
-  reducer: { counter: counterReducer, tasks: taskReducer },
+  reducer: {
+    counter: counterReducer,
+    todo: taskReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
