@@ -20,7 +20,7 @@ export default function Tasks() {
       </div>
       <div className="space-y-5 mt-5">
         {tasks.map((task) => {
-          return <TaskCard task={task}></TaskCard>;
+          return <TaskCard key={task.id} task={task}></TaskCard>;
         })}
       </div>
     </div>

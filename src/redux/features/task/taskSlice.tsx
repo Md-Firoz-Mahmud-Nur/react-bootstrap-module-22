@@ -17,6 +17,14 @@ const initialState: InitialState = {
       isCompleted: false,
       priority: "High",
     },
+    {
+      id: 1,
+      title: "GitHub",
+      description: "Create GitHub Account",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "Medium",
+    },
   ],
   filter: "all",
 };

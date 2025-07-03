@@ -3,6 +3,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -16,12 +17,24 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 
+interface FormData {
+  title: string;
+  description: string;
+  isCompleted: boolean;
+}
 export function AddTaskModal() {
-  const form = useForm();
+  const form = useForm<FormData>({
+    defaultValues: {
+      title: "",
+      description: "",
+      isCompleted: false,
+    },
+  });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormData) => {
     console.log(data);
   };
 
@@ -35,16 +48,31 @@ export function AddTaskModal() {
           <DialogHeader>
             <DialogTitle>Add Task</DialogTitle>
           </DialogHeader>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
+          <DialogDescription>
+            Fill up this form to add a new task
+          </DialogDescription>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <Form {...form}>
               <FormField
                 control={form.control}
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel />
+                    <FormLabel>Title</FormLabel>
                     <FormControl>
-                      <Input {...field}></Input>
+                      <Input {...field} value={field.value || ""}></Input>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Description</FormLabel>
+                    <FormControl>
+                      <Textarea {...field} value={field.value || ""}></Textarea>
                     </FormControl>
                   </FormItem>
                 )}
