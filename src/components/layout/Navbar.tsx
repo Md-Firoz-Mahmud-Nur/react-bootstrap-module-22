@@ -1,5 +1,6 @@
 import Logo from "@/assets/Logo";
 import { Link } from "react-router";
+import { ModeToggle } from "../ModeToggle";
 
 export default function Navbar() {
   return (
@@ -13,6 +14,9 @@ export default function Navbar() {
       <Link className="hover:underline" to="/user">
         User
       </Link>
+      <div className="ml-auto">
+        <ModeToggle />
+      </div>
     </nav>
   );
 }
